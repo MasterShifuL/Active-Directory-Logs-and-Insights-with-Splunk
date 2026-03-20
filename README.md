@@ -115,7 +115,9 @@ Created scheduled reports for monitoring AD activity trends over time.
 ### Failed Logon Detection
 
 ```spl
-sourcetype="WinEventLog:Security" EventCode=4625
+index=main sourcetype="WinEventLog:Security" EventCode=4625
+| stats count by Account_Name, host
+| sort - count
 ```
 
 ### Brute Force Detection
