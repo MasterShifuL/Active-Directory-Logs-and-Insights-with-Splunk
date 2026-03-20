@@ -34,8 +34,7 @@ This project aims to build a Security Information and Event Management (SIEM) la
 
 Installed Splunk Enterprise on the server and ensured the service was running properly. Configured Splunk to receive data from forwarders.
 
-📸 Screenshot:
-![Splunk Setup](screenshots/1-splunk-setup.png)
+![Splunk Setup](screenshots/splunk-setup.png)
 
 ---
 
@@ -43,8 +42,7 @@ Installed Splunk Enterprise on the server and ensured the service was running pr
 
 Performed failed login attempts on the Windows machine to generate Event ID **4625** logs.
 
-📸 Screenshot:
-![Event Viewer 4625](screenshots/2-event-viewer-4625.png)
+![Event Viewer 4625](screenshots/event-viewer-4625.png)
 
 ---
 
@@ -57,8 +55,7 @@ Configured Splunk Universal Forwarder to collect Windows Security logs using `in
 disabled = 0
 ```
 
-📸 Screenshot:
-![Splunk Ingestion](screenshots/3-splunk-ingestion.png)
+![Forwarder](screenshots/forwarder.png)
 
 ---
 
@@ -69,6 +66,7 @@ Validated that logs were successfully ingested into Splunk using the following s
 ```spl
 sourcetype="WinEventLog:Security" EventCode=4625
 ```
+![Splunk Ingestion](screenshots/splunk-ingestion.png)
 
 ---
 
@@ -76,8 +74,7 @@ sourcetype="WinEventLog:Security" EventCode=4625
 
 Created a dashboard to visualize login activity and failed login attempts.
 
-📸 Screenshot:
-![Dashboard](screenshots/4-dashboard.png)
+![Dashboard](screenshots/dashboard.png)
 
 ---
 
@@ -91,8 +88,7 @@ sourcetype="WinEventLog:Security" EventCode=4625
 | where count > 5
 ```
 
-📸 Screenshot:
-![Alert](screenshots/5-alert.png)
+![Alert](screenshots/alert.png)
 
 ---
 
@@ -110,8 +106,7 @@ Converted the detection query into an alert to notify when suspicious activity o
 
 Created scheduled reports for monitoring AD activity trends over time.
 
-📸 Screenshot:
-![Report](screenshots/6-report.png)
+![Report](screenshots/report.png)
 
 ---
 
@@ -166,14 +161,5 @@ The lab simulates real-world SOC scenarios, particularly brute-force attack dete
 * Importance of log sources and data accuracy
 * Detecting authentication-based attacks
 * Building practical security monitoring solutions
-
----
-
-## 📌 Future Improvements
-
-* Add more detection rules (Privilege Escalation, Lateral Movement)
-* Integrate Sysmon for deeper visibility
-* Build correlation rules
-* Add MITRE ATT&CK mapping
 
 ---
