@@ -100,6 +100,8 @@ Converted the detection query into an alert to notify when suspicious activity o
 * Time Range: Last 10 minutes
 * Trigger: Every 5 minutes
 
+![Alert History](screenshots/alert-history.png)
+
 ---
 
 ### Step 8: Generate Scheduled Reports
