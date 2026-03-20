@@ -123,9 +123,11 @@ index=main sourcetype="WinEventLog:Security" EventCode=4625
 ### Brute Force Detection
 
 ```spl
-sourcetype="WinEventLog:Security" EventCode=4625
-| stats count by Account_Name
-| where count > 5
+index=main sourcetype="WinEventLog:Security" EventCode=4625
+| bin _time span=5m
+| stats count by _time, Account_Name, host
+| where count >= 5
+| sort - count
 ```
 
 ---
